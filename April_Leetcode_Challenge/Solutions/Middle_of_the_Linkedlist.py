@@ -1,19 +1,28 @@
 class Solution:
-    def countElements(self, arr: List[int]) -> int:
+    def middleNode(self, head: ListNode) -> ListNode:
         
-        dict1 = {}
+        current = head
+        c = 0
         
-        count = 0
-        
-        for i in arr:
+        while current:
             
-            dict1[i] = 1
-        
-        for x in arr:
+            c += 1
+            current = current.next
             
-            if x+1 in dict1:
-                
-                count += 1
+        if c == 1:
+            return head
         
-        return count
+        current = head
+        
+        
+        l = 0
+        
+        while current:
+            
+            l = l+1
+            
+            current = current.next
+            
+            if l == c//2 :
                 
+                return current
